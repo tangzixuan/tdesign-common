@@ -81,6 +81,9 @@ export class TreeStore {
   // 选中节点集合
   public checkedMap: TypeIdMap;
 
+  // 设置半选集合
+  public indeterminateMap: TypeIdMap;
+
   // 展开节点的集合
   public expandedMap: TypeIdMap;
 
@@ -138,6 +141,7 @@ export class TreeStore {
     this.expandedMap = new Map();
     this.checkedMap = new Map();
     this.updatedMap = new Map();
+    this.indeterminateMap = new Map();
     this.filterMap = new Map();
     this.prevFilter = null;
     // 这个计时器确保频繁的 update 事件被归纳为1次完整数据更新后的触发
@@ -272,7 +276,7 @@ export class TreeStore {
    */
   public getNodes(
     item?: TypeTargetNode,
-    options?: TypeTreeFilterOptions,
+    options?: TypeTreeFilterOptions
   ): TreeNode[] {
     let nodes: TreeNode[] = [];
     let val: TreeNodeValue = '';
@@ -355,7 +359,7 @@ export class TreeStore {
    */
   private parseNodeData(
     para: TreeNodeValue | TreeNode | TypeTreeNodeData,
-    item: TypeTreeNodeData | TreeNode,
+    item: TypeTreeNodeData | TreeNode
   ) {
     let value: TreeNodeValue = '';
     let node = null;
@@ -398,7 +402,7 @@ export class TreeStore {
    */
   public appendNodes(
     para: TypeTargetNode | TypeTreeNodeData,
-    item?: TypeTreeNodeData | TreeNode,
+    item?: TypeTreeNodeData | TreeNode
   ): void {
     const spec = this.parseNodeData(para, item);
     if (spec.data) {
@@ -476,7 +480,7 @@ export class TreeStore {
     // 所以遍历 nodeMap 确保初始化阶段 refreshState 方法也可以触发全部节点的更新
     nodeMap.forEach((node) => {
       node.update();
-      node.updateChecked();
+      node.updateChecked('refresh');
     });
   }
 
@@ -575,6 +579,21 @@ export class TreeStore {
   public replaceActived(list: TreeNodeValue[]): void {
     this.resetActived();
     this.setActived(list);
+  }
+
+  public replaceIndeterminate(list: TreeNodeValue[]): void {
+    this.setIndeterminate(list);
+  }
+
+  public setIndeterminate(indeterminate: TreeNodeValue[]): void {
+    indeterminate.forEach((val) => {
+      this.indeterminateMap.set(val, true);
+      const node = this.getNode(val);
+      if (node) {
+        node.setIndeterminate(true);
+        node.update();
+      }
+    });
   }
 
   /**
@@ -796,7 +815,7 @@ export class TreeStore {
   public updateAll(): void {
     this.nodeMap.forEach((node) => {
       node.update();
-      node.updateChecked();
+      node.updateChecked('refresh');
     });
   }
 
@@ -834,7 +853,7 @@ export class TreeStore {
    */
   public getRelatedNodes(
     list: TreeNodeValue[],
-    options?: TypeRelatedNodesOptions,
+    options?: TypeRelatedNodesOptions
   ): TreeNode[] {
     const conf = {
       // 默认倒序排列，从底层节点开始遍历
