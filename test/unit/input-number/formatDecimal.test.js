@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { formatDecimal, decimalPlacesToFixedNum } from '../../../js/input-number/large-number';
 
 describe('formatDecimal', () => {
@@ -7,6 +8,22 @@ describe('formatDecimal', () => {
 
   it('1, 0, false', () => {
     expect(formatDecimal(1, 0, false)).toBe('1');
+  });
+
+  it('1, 1, true', () => {
+    expect(formatDecimal(1, 1, true)).toBe('1.0');
+  });
+
+  it('1.0, 1, true', () => {
+    expect(formatDecimal(1.0, 1, true)).toBe('1.0');
+  });
+
+  it('1.0, 1, false', () => {
+    expect(formatDecimal(1.0, 1, false)).toBe('1.0');
+  });
+
+  it('1.0, 2, true', () => {
+    expect(formatDecimal(1.0, 2, true)).toBe('1.00');
   });
 
   it('1.5, 0, true', () => {
