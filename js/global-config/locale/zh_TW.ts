@@ -3,6 +3,9 @@
 import 'dayjs/locale/zh-tw';
 
 export default {
+  autoComplete: {
+    empty: '暫無數據',
+  },
   pagination: {
     itemsPerPage: '{size} 項/頁',
     jumpTo: '跳至',

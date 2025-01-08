@@ -3,6 +3,9 @@
 import 'dayjs/locale/it';
 
 export default {
+  autoComplete: {
+    empty: 'Nessun dato',
+  },
   pagination: {
     itemsPerPage: '{size} articoli/pagina',
     jumpTo: 'Vai a',

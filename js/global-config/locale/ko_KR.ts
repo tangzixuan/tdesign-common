@@ -3,6 +3,9 @@
 import 'dayjs/locale/ko';
 
 export default {
+  autoComplete: {
+    empty: '데이터 없음',
+  },
   pagination: {
     itemsPerPage: '{size} /페이지',
     jumpTo: '건너뛰다',

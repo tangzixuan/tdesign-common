@@ -3,6 +3,9 @@
 import 'dayjs/locale/ru';
 
 export default {
+  autoComplete: {
+    empty: 'Нет данных',
+  },
   pagination: {
     itemsPerPage: '{size} шт./стр.',
     jumpTo: 'Перейти к',

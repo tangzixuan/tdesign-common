@@ -3,6 +3,9 @@
 import 'dayjs/locale/ar';
 
 export default {
+  autoComplete: {
+    empty: 'لا تتوافر بيانات',
+  },
   pagination: {
     itemsPerPage: '{size} / الصفحة',
     jumpTo: 'القفز إلى',
