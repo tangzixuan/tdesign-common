@@ -1,4 +1,4 @@
-import isFunction from 'lodash/isFunction';
+import { isFunction, chunk } from 'lodash-es';
 import dayjs from 'dayjs';
 import dayJsIsBetween from 'dayjs/plugin/isBetween';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
@@ -7,7 +7,6 @@ import localeData from 'dayjs/plugin/localeData';
 import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import chunk from 'lodash/chunk';
 import { parseToDayjs } from './format';
 
 dayjs.extend(weekOfYear);

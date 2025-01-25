@@ -1,10 +1,4 @@
-import isArray from 'lodash/isArray';
-import isFunction from 'lodash/isFunction';
-import isNumber from 'lodash/isNumber';
-import isString from 'lodash/isString';
-import difference from 'lodash/difference';
-import camelCase from 'lodash/camelCase';
-import isPlainObject from 'lodash/isPlainObject';
+import { isArray, isFunction, isNumber, isString, difference, camelCase, isPlainObject } from 'lodash-es';
 import mitt from 'mitt';
 
 import { TreeNode } from './tree-node';

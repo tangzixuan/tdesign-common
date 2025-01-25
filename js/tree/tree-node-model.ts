@@ -1,7 +1,4 @@
-import isUndefined from 'lodash/isUndefined';
-import isBoolean from 'lodash/isBoolean';
-import omit from 'lodash/omit';
-import get from 'lodash/get';
+import { isUndefined, isBoolean, omit, get } from 'lodash-es';
 import { TreeNode } from './tree-node';
 import { OptionData } from '../common';
 import {

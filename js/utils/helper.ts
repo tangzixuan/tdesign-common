@@ -1,8 +1,4 @@
-import isString from 'lodash/isString';
-import isNull from 'lodash/isNull';
-import isUndefined from 'lodash/isUndefined';
-import isNumber from 'lodash/isNumber';
-import isArray from 'lodash/isArray';
+import { isString, isNull, isUndefined, isNumber, isArray } from 'lodash-es';
 
 export function omit(obj: object, fields: string[]): object {
   const shallowCopy = {

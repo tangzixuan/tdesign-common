@@ -1,4 +1,4 @@
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 import dayjs from 'dayjs';
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear';
 import isLeapYear from 'dayjs/plugin/isLeapYear';
