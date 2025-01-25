@@ -10,6 +10,8 @@
 
 @import "../../mixins/_reset.less";
 
+@import "../popup/_var.less";
+
 @border: 1px solid @table-border-color;
 
 @table-fixed-column-z-index: 30;
@@ -59,6 +61,11 @@
   font: @table-font;
   color: @table--text-color;
   background-color: @table-bg;
+  position: relative;
+
+  &:focus-visible {
+    outline: none;
+  }
 
   /** loading need to be top of fixed columns */
   .@{prefix}-loading--full {
@@ -87,6 +94,10 @@
 
   &__column-controller-trigger {
     padding: @table-controller-trigger-padding;
+  }
+
+  &__column-controller-item:not(:last-child) {
+    margin-bottom: @table-controller-item-margin;
   }
 
   &__content {
@@ -280,13 +291,13 @@
     }
 
     &.@{prefix}-table--header-fixed {
-      > .t-table__content > table > tbody tr:nth-of-type(even) {
+      > .@{prefix}-table__content > table > tbody tr:nth-of-type(even) {
         background-color: @table-highlight-bg-color;
       }
     }
 
     &:not(.@{prefix}-table--header-fixed) {
-      > .t-table__content > table > tbody > tr:nth-of-type(odd):not(.@{prefix}-table__expanded-row) {
+      > .@{prefix}-table__content > table > tbody > tr:nth-of-type(odd):not(.@{prefix}-table__expanded-row) {
         background-color: @table-highlight-bg-color;
       }
     }
@@ -300,12 +311,12 @@
       }
 
       &:not(.@{prefix}-table__header--fixed) {
-        > .t-table__content > table > tbody tr:nth-of-type(odd):hover {
+        > .@{prefix}-table__content > table > tbody tr:nth-of-type(odd):hover {
           background-color: @table-highlight-bg-color--hover;
         }
       }
 
-      > .t-table__content > table > tbody {
+      > .@{prefix}-table__content > table > tbody {
         tr {
           transition: background-color @anim-duration-base linear;
 
@@ -485,6 +496,39 @@
   }
 }
 
+/** 表格行点击高亮悬浮态 */
+.@{prefix}-table.@{prefix}-table__row--active-single,
+.@{prefix}-table.@{prefix}-table__row--active-multiple {
+  tbody > tr.@{prefix}-table__row--active {
+    background-color: @brand-color-light;
+  }
+
+  tbody > tr.@{prefix}-table__row--active.@{prefix}-table__row--hover {
+    background-color: @brand-color-light-hover;
+  }
+}
+
+.@{prefix}-table.@{prefix}-table--hoverable {
+  tbody > tr.@{prefix}-table__row--active {
+    &:hover {
+      background-color: @brand-color-light-hover;
+    }
+  }
+}
+
+/** 键盘操作悬浮表格行 */
+.@{prefix}-table {
+  &.@{prefix}-table--row-expandable,
+  &.@{prefix}-table--row-select,
+  &.@{prefix}-table__row--active-multiple {
+    tbody > tr {
+      &.@{prefix}-table__row--hover {
+        background-color: @table-highlight-dark-bg-color;
+      }
+    }
+  }
+}
+
 // 表头右侧图标设计规范：有边框时，排序图标靠近右侧边框；无边框时，排序图标紧跟标题内容
 .@{prefix}-table--bordered {
   .@{prefix}-table__cell--sortable,
@@ -600,6 +644,10 @@
   .@{prefix}-table__filter-pop-content {
     .@{prefix}-table__filter-pop-content-inner {
       padding: @comp-paddingTB-l @comp-paddingLR-l;
+
+      .@{prefix}-table__filter-popup-input {
+        margin-bottom: @comp-margin-s;
+      }
     }
     .@{prefix}-radio-group {
       display: block;
@@ -620,8 +668,29 @@
       border-top: @border;
       padding: @comp-paddingTB-l @comp-paddingLR-l;
 
-      .t-button + .t-button {
+      .@{prefix}-button + .@{prefix}-button {
         margin-left: @comp-margin-l;
+      }
+    }
+  }
+
+  .@{prefix}-table__list-filter-input--sticky {
+    .@{prefix}-table__filter-pop-content .@{prefix}-table__filter-pop-content-inner {
+      padding: 0;
+      max-height: 280px;
+      overflow: auto;
+      position: relative;
+
+      .@{prefix}-input__wrap {
+        padding: @comp-paddingTB-l @comp-paddingLR-l 0 @comp-paddingLR-l;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: var(--td-bg-color-container);
+      }
+
+      .@{prefix}-radio-group {
+        padding: 0 @comp-paddingLR-l;
       }
     }
   }
@@ -725,7 +794,7 @@
 }
 
 .@{prefix}-table__th-row-select {
-  .t-table__th-cell-inner {
+  .@{prefix}-table__th-cell-inner {
     display: inline-flex;
     align-items: center;
   }
@@ -1054,6 +1123,11 @@
       margin-left: @table-td-editalbe-icon-margin;
       font-size: @table-icon-size;
       transition: @anim-duration-base linear;
+      color: @table-icon-default-color;
+
+      &:hover {
+        color: @table-icon-active-color;
+      }
     }
 
     &:hover {
@@ -1139,18 +1213,11 @@
   }
 }
 
-.t-table .@{prefix}-table__sort-column {
+.@{prefix}-table .@{prefix}-table__sort-column {
   background-color: @table-sort-bg-color;
 }
 
 // 超出省略的文本，也需要跟着尺寸变化
 .@{prefix}-table__ellipsis-content.@{prefix}-size-s .@{prefix}-popup__content {
   font: @table-font;
-}
-
-/** Chrome 兼容问题处理 */
-.@{prefix}-table--chrome.@{prefix}-table--multiple-header {
-  .@{prefix}-table__affixed-header-elm {
-    margin-top: 1px;
-  }
 }

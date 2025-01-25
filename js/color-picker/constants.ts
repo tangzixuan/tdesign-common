@@ -5,8 +5,8 @@ export const TD_COLOR_USED_COLORS_MAX_SIZE = 100; // 每行10个
 
 // 颜色模式options配置
 export const COLOR_MODES = {
-  monochrome: '单色',
-  'linear-gradient': '渐变',
+  monochrome: 'singleColor',
+  'linear-gradient': 'gradientColor',
 };
 
 // 默认颜色
@@ -58,6 +58,9 @@ export const DEFAULT_SYSTEM_SWATCH_COLORS = [
   '#044F2A',
   '#033017',
 ];
+
+// 非透明色格式化类型
+export const FORMATS = ['HEX', 'RGB', 'HSL', 'HSV', 'CMYK', 'CSS'];
 
 // saturation-panel default rect
 export const SATURATION_PANEL_DEFAULT_WIDTH = 230;

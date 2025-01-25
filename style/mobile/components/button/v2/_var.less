@@ -29,10 +29,10 @@
 @button-large-icon-font-size: var(--td-button-large-icon-font-size, 24px);
 
 // default
-@button-default-color: var(--td-button-default-color, @font-gray-1);
+@button-default-color: var(--td-button-default-color, @text-color-primary);
 @button-default-bg-color: var(--td-button-default-bg-color, @bg-color-component);
 @button-default-border-color: var(--td-button-default-border-color, @bg-color-component);
-@button-default-disabled-color: var(--td-button-default-disabled-color, @font-gray-4);
+@button-default-disabled-color: var(--td-button-default-disabled-color, @text-color-disabled);
 @button-default-disabled-bg: var(--td-button-default-disabled-bg, @bg-color-component-disabled);
 @button-default-disabled-border-color: var(--td-button-default-disabled-border-color, @bg-color-component-disabled);
 // primary
@@ -53,11 +53,11 @@
 @button-danger-color: var(--td-button-danger-color, @font-white-1);
 @button-danger-border-color: var(--td-button-danger-border-color, @error-color);
 @button-danger-bg-color: var(--td-button-danger-bg-color, @error-color);
-@button-danger-disabled-color: var(--td-button-danger-disabled-color, @font-white-1);
+@button-danger-disabled-color: var(--td-button-danger-disabled-color, @error-color-disabled);
 @button-danger-disabled-bg: var(--td-button-danger-disabled-bg, @error-color-3);
 @button-danger-disabled-border-color: var(--td-button-danger-disabled-border-color, @error-color-3);
 // default + outline
-@button-default-outline-color: var(--td-button-default-outline-color, @font-gray-1);
+@button-default-outline-color: var(--td-button-default-outline-color, @text-color-primary);
 @button-default-outline-border-color: var(--td-button-default-outline-border-color, @component-border);
 @button-default-outline-disabled-color: var(--td-button-default-outline-disabled-color, @component-border);
 // primary + outline
@@ -73,14 +73,7 @@
 @button-light-outline-border-color: var(--td-button-light-outline-border-color, @button-light-outline-color);
 @button-light-outline-bg-color: var(--td-button-light-outline-bg-color, @brand-color-light);
 @button-light-outline-disabled-color: var(--td-button-light-outline-disabled-color, @brand-color-disabled);
-// primary + dashed
-@button-primary-dashed-color: var(--td-button-primary-dashed-color, @brand-color);
-@button-primary-dashed-border-color: var(--td-button-primary-dashed-border-color, @button-primary-dashed-color);
-@button-primary-dashed-disabled-color: var(--td-button-primary-dashed-disabled-color, @brand-color-disabled);
-// danger + dashed
-@button-danger-dashed-color: var(--td-button-danger-dashed-color, @error-color);
-@button-danger-dashed-border-color: var(--td-button-danger-dashed-border-color, @button-danger-dashed-color);
-@button-danger-dashed-disabled-color: var(--td-button-danger-dashed-disabled-color, @button-danger-disabled-color);
+
 // primary + text
 @button-primary-text-color: var(--td-button-primary-text-color, @brand-color);
 @button-primary-text-disabled-color: var(--td-button-primary-text-disabled-color, @brand-color-disabled);
@@ -90,9 +83,9 @@
 // light + text
 @button-light-text-color: var(--td-button-light-text-color, @brand-color);
 // ghost 优先级高于 theme，固定透明背景，白色边框，白色字体
-@button-ghost-color: var(--td-button-ghost-color, @bg-color-container);
+@button-ghost-color: var(--td-button-ghost-color, #fff);
 @button-ghost-border-color: var(--td-button-ghost-border-color, @button-ghost-color);
-@button-ghost-disabled-color: var(--td-button-ghost-disabled-color, rgba(255, 255, 255, .35));
+@button-ghost-disabled-color: var(--td-button-ghost-disabled-color, @font-white-4);
 @button-ghost-hover-color: var(--td-button-ghost-hover-color, @font-white-2);
 @button-ghost-primary-color: var(--td-button-ghost-primary-color, @brand-color);
 @button-ghost-primary-border-color: var(--td-button-ghost-primary-border-color, @brand-color);

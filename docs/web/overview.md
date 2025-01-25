@@ -270,7 +270,7 @@ spline: explain
   </div>
 </section>
 
-<h3>数据展示<em class="tag">20</em></h3>
+<h3>数据展示<em class="tag">22</em></h3>
 <section class="image-group">
   <div class="image-wrapper">
     <a class="item" href="./components/avatar">
@@ -312,6 +312,13 @@ spline: explain
       <img class="__light__" src="https://tdesign.gtimg.com/site/doc/doc-comment.png" />
       <img class="__dark__" src="https://tdesign.gtimg.com/site/doc/doc-comment-dark.png" />
       <p class="name">Comment 评论</p>
+    </a>
+  </div>
+  <div class="image-wrapper">
+    <a class="item" href="./components/descriptions">
+      <img class="__light__" src="https://tdesign.gtimg.com/site/doc/doc-descriptions.png" />
+      <img class="__dark__" src="https://tdesign.gtimg.com/site/doc/doc-descriptions-dark.png" />
+      <p class="name">Descriptions 描述</p>
     </a>
   </div>
   <div class="image-wrapper">
@@ -364,12 +371,19 @@ spline: explain
     </a>
   </div>
   <div class="image-wrapper">
+    <a class="item" href="./components/statistic">
+      <img class="__light__" src="https://tdesign.gtimg.com/site/doc/doc-statistic.png" />
+      <img class="__dark__" src="https://tdesign.gtimg.com/site/doc/doc-statistic-dark.png" />
+      <p class="name">Statistic 统计数值</p>
+    </a>
+  </div>
+  <div class="image-wrapper">
     <a class="item" href="./components/swiper">
       <img class="__light__" src="https://tdesign.gtimg.com/site/doc/doc-swiper.png" />
       <img class="__dark__" src="https://tdesign.gtimg.com/site/doc/doc-swiper-dark.png" />
       <p class="name">Swiper 轮播框</p>
     </a>
-  </div> 
+  </div>
   <div class="image-wrapper">
     <a class="item" href="./components/table">
       <img class="__light__" src="https://tdesign.gtimg.com/site/doc/doc-table.png" />
@@ -440,8 +454,8 @@ spline: explain
 
   <div class="image-wrapper">
     <a class="item" href="./components/guide">
-      <img class="__light__" src="https://tdesign.gtimg.com/site/doc/doc-button.png" />
-      <img class="__dark__" src="https://tdesign.gtimg.com/site/doc/doc-button-dark.png" />
+      <img class="__light__" src="https://tdesign.gtimg.com/site/doc/doc-guide.png" />
+      <img class="__dark__" src="https://tdesign.gtimg.com/site/doc/doc-guide-dark.png" />
       <p class="name">Guide 引导</p>
     </a>
   </div>

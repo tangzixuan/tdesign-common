@@ -16,6 +16,11 @@ spline: data
 
 {{ excess }}
 
+### 标签数量超出后限制最大行数的输入框
+
+使用 maxRows 控制标签超出时的最大行数，超出会出现滚动条，默认为不限制。
+
+{{ max-row }}
 
 ### 有数量限制的标签输入框
 
@@ -39,10 +44,9 @@ spline: data
 ### 可自定义标签的标签输入框
 
 - `tag` 用于定义单个标签的内容
-- `valueDispaly` 用于完全自定义全量标签内容
+- `valueDisplay` 用于完全自定义全量标签内容
 
 {{ custom-tag }}
-
 
 ### 不同状态的标签输入框
 
@@ -61,4 +65,5 @@ spline: data
 {{ auto-width }}
 
 ### 可拖拽调整顺序的标签输入框
+
 {{ draggable }}

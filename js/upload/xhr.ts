@@ -1,4 +1,4 @@
-import isFunction from 'lodash/isFunction';
+import { isFunction } from 'lodash-es';
 /* eslint-disable no-param-reassign */
 import log from '../log/log';
 import { UploadFile, XhrOptions } from './types';
@@ -68,6 +68,8 @@ export default function xhr({
   });
   if (innerFiles.length === 1) {
     requestData[name] = innerFiles[0].raw;
+  } else {
+    requestData[name] = innerFiles.map((file) => file.raw);
   }
   requestData.length = innerFiles.length;
 

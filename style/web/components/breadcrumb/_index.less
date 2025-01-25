@@ -14,6 +14,10 @@
     margin: @breadcrumb-separator-margin;
     display: flex;
     align-items: center;
+
+    .t-icon {
+      color: @breadcrumb-icon-color-current;
+    }
   }
 
   &__item {
@@ -136,7 +140,7 @@
         color: @breadcrumb-text-color-hover;
       }
 
-      &.t-is-active {
+      &.@{prefix}-is-active {
         color: @breadcrumb-text-color-hover;
       }
     }
@@ -188,6 +192,7 @@
       max-width: @breadcrumb-inner-max-width-default;
       display: flex;
       align-items: center;
+      transition: color @anim-duration-base linear;
 
       &-text {
         .t-overflow;
@@ -195,7 +200,6 @@
 
       &:hover {
         color: @breadcrumb-text-color-hover;
-        transition: color @anim-duration-base linear;
         cursor: pointer;
       }
 

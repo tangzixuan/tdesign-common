@@ -111,7 +111,7 @@
       bottom: 0;
       width: 18px;
       height: 18px;
-      background: #fff;
+      background: @bg-color-container;
 
       &::after {
         content: "";
@@ -178,6 +178,13 @@
     width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    height: @tab-item-height;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     &--card {
       background: @bg-color-secondarycontainer;
@@ -185,13 +192,7 @@
       --td-tab-border-color: transparent;
     }
 
-    &--top,
-    &--bottom {
-      height: @tab-item-height;
-      position: relative;
-    }
-
-    &--top {
+    &--split {
       .border(bottom, @tab-border-color);
     }
   }

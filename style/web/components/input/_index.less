@@ -10,6 +10,8 @@
 
 @import "../../mixins/_reset.less";
 
+@import "../../utilities/_tips.less";
+
 .@{prefix}-input {
   .reset;
 
@@ -18,6 +20,23 @@
   box-sizing: border-box;
   height: @input-height-default;
   .input-base();
+
+  // borderless mode
+  &--borderless:not(&--focused) {
+    border-color: transparent;
+    transition: @input-inner-transition;
+
+    &:hover {
+      border-color: @component-border;
+      background-color: @bg-color-container-hover;
+      cursor: pointer;
+    }
+
+    &.@{prefix}-is-disabled {
+      border: none;
+      background-color: @input-bg-color-disabled;
+    }
+  }
 
   &--focused {
     border-color: @input-border-color-default-focus;
@@ -62,6 +81,10 @@
     &[type="search"]::-webkit-search-results-button,
     &[type="search"]::-webkit-search-results-decoration {
       appearance: none;
+    }
+
+    &.@{prefix}-input--soft-hidden {
+      width: 0;
     }
   }
   // 底部的额外消息

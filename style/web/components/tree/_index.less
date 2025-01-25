@@ -82,6 +82,15 @@
     .@{prefix}-checkbox {
       align-items: center;
       font-size: 0;
+
+      &__input {
+        flex-shrink: 0;
+      }
+
+      &__label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
 
     .@{prefix}-tree__icon--default {
@@ -253,7 +262,8 @@
     --ripple-color: @bg-color-container-active;
 
     flex-wrap: nowrap;
-    flex: 0 0 auto;
+    // resoved style issues of tree component does not handle content exceedance
+    flex: 1;
     padding: @tree-label-padding;
     margin-left: @tree-label-margin-left;
     border-radius: @border-radius-default;

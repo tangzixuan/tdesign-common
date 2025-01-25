@@ -1,4 +1,4 @@
-import isString from 'lodash/isString';
+import { isString } from 'lodash-es';
 import dayjs from 'dayjs';
 import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear';
 import isLeapYear from 'dayjs/plugin/isLeapYear';
@@ -257,8 +257,8 @@ export function getDefaultFormat({
   }
   if (mode === 'week') {
     return {
-      format: format || 'YYYY-wo',
-      valueType: valueType || format || 'YYYY-wo',
+      format: format || 'gggg-wo',
+      valueType: valueType || format || 'gggg-wo',
       timeFormat: TIME_FORMAT,
     };
   }

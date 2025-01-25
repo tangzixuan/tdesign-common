@@ -1,7 +1,5 @@
-import isUndefined from 'lodash/isUndefined';
+import { isUndefined, isString, isNumber } from 'lodash-es';
 /** 普通数相关方法 */
-import isString from 'lodash/isString';
-import isNumber from 'lodash/isNumber';
 import {
   compareNumber,
   formatENumber,
@@ -11,6 +9,7 @@ import {
   largeNumberSubtract,
 } from './large-number';
 import log from '../log';
+import type { InputNumberDecimalPlaces } from './large-number';
 
 export * from './large-number';
 
@@ -54,7 +53,7 @@ export function putInRangeNumber(
     largeNumber?: boolean;
   }
 ) {
-  if (val === '') return null;
+  if (val === '') return undefined;
   const { max, min, lastValue, largeNumber } = params;
   if (!isInputNumber(val)) return lastValue;
   if (largeNumber && (isString(max) || max === Infinity) && (isString(min) || min === -Infinity)) {
@@ -143,7 +142,7 @@ export function getStepValue(p: {
   largeNumber?: boolean;
 }) {
   const { op, step, lastValue, max, min, largeNumber } = p;
-  if (step <= 0) {
+  if (Number(step) <= 0) {
     log.error('InputNumber', 'step must be larger than 0.');
     return lastValue;
   }
@@ -183,7 +182,7 @@ export function getMaxOrMinValidateResult(p: {
   min: NumberType;
 }): InputNumberErrorType {
   const { largeNumber, value, max, min } = p;
-  if (isUndefined(largeNumber)) return undefined;
+  if (isUndefined(value) || isUndefined(largeNumber)) return undefined;
   if (largeNumber && isNumber(value)) {
     log.warn('InputNumber', 'largeNumber value must be a string.');
   }
@@ -209,11 +208,15 @@ export function canInputNumber(number: string, largeNumber: boolean) {
   if (['', null, undefined].includes(number)) return true;
   // 数字最前方不允许出现连续的两个 0
   if (number.slice(0, 2) === '00') return false;
+  // 不能出现空格
+  if (number.match(/\s/g)) return false;
   // 只能出现一个点（.）
   if (number.match(/\./g)?.length > 1) return false;
-  // 只能出现一个负号（-），并且在第一个位置
-  const minusSignCount = number.match(/-/g)?.length || 0;
-  if (minusSignCount > 1 || (minusSignCount === 1 && number[0] !== '-')) return false;
+  // 只能出现一个e（e）
+  if (number.match(/e/g)?.length > 1) return false;
+  // 只能出现一个负号（-）或 一个正号（+），并且在第一个位置；但允许 3e+10 这种形式
+  const tmpNumber = number.slice(1);
+  if (/(\+|-)/.test(tmpNumber) && !/e+/i.test(tmpNumber)) return false;
   // 允许输入数字字符
   const isNumber = (largeNumber && isInputNumber(number)) || !Number.isNaN(Number(number));
   if (!isNumber && !specialCode.includes(number.slice(-1))) return false;
@@ -236,12 +239,12 @@ export function canSetValue(number: string, lastNumber: number) {
 export function formatUnCompleteNumber(
   number: string,
   extra: {
-    decimalPlaces?: number;
+    decimalPlaces?: InputNumberDecimalPlaces;
     largeNumber?: boolean;
     isToFixed?: boolean;
   } = {}
 ): number | string {
-  if (['', null, undefined].includes(number) || !/\d+/.test(number)) return null;
+  if (['', null, undefined].includes(number) || !/\d+/.test(number)) return undefined;
   const { decimalPlaces, largeNumber, isToFixed } = extra;
   let newNumber = number.replace(/[.|+|\-|e]$/, '');
   if (largeNumber) {

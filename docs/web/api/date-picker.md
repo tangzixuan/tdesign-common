@@ -35,6 +35,13 @@ spline: form
 用于具体日期的选择。用户仅需要输入非常具体的日期信息时使用。
 
 {{ base }}
+
+### 日期多选选择器
+
+用于日期多选的选择。
+
+{{ multiple }}
+
 ### 日期时间选择器
 
 用于日期和时间相关联的选择。用户需要输入包含时间在内的日期时使用。
@@ -75,6 +82,10 @@ spline: form
 支持 `DatePickerPanel` 和 `DateRangePickerPanel` 单独使用场景，可以自行组装日期选择器。
 
 {{ panel }}
+
+### 不限制日期区间选择范围的选择器
+
+{{ cancel-range-limit }}
 
 ## FAQ
 

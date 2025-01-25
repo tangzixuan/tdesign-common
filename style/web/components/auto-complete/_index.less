@@ -9,6 +9,7 @@
 }
 
 .@{prefix}-auto-complete {
+  width: 100%;
   .@{prefix}-input__suffix-clear {
     display: none;
   }
@@ -16,6 +17,15 @@
   &:hover {
     .@{prefix}-input__suffix-clear {
       display: inline-block;
+    }
+  }
+
+  &__panel {
+    &--empty {
+      height: @auto-complete-empty-height-default;
+      line-height: @auto-complete-empty-height-default;
+      color: @auto-complete-color-empty;
+      text-align: center;
     }
   }
 }

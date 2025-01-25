@@ -39,3 +39,9 @@ Available in large and small sizes
 {{ small }}
 
 {{ large }}
+
+### Custom scroll effect
+
+Disable the default JavaScript scroll animation that occurs when clicking on anchor links, making it behave like a regular `<a>` tag. Allow users to customize the scroll effect.
+
+{{ custom-scroll }}

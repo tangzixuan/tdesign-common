@@ -16,6 +16,12 @@ Use `excessTagsDisplayType` to control the rendering method when the tag exceeds
 
 {{ excess }}
 
+### Maximum Number of Rows When Tags Exceed Limit
+
+Use `maxRows` to control the maximum number of rows when tags exceed the limit. A scrollbar will appear when the number of rows exceeds this limit. By default, there is no limit.
+
+{{ max-row }}
+
 ### Tag input box with limited number
 
 Use `max` to control the maximum number of tags.
@@ -37,7 +43,7 @@ Provide large, medium (default), small three different size of the label input b
 
 ### Tag Input Box for Customizable Tags
 
-- `tag` is used to define the content of a single tag- `valueDispaly` is used to completely customize the full tag content
+- `tag` is used to define the content of a single tag- `valueDisplay` is used to completely customize the full tag content
 
 {{ custom-tag }}
 

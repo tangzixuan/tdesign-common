@@ -10,6 +10,8 @@
 
 @import "../../mixins/_reset.less";
 
+@import "../../mixins/_focus.less";
+
 // <name> 替换为组件名
 .@{checkbox-cls}-group {
   .reset;
@@ -46,6 +48,7 @@
     border-radius: @checkbox-border-radius;
     background-color: @checkbox-input-color;
     box-sizing: border-box;
+    flex-shrink: 0;
 
     &::after {
       content: "";
@@ -154,4 +157,8 @@
       }
     }
   }
+}
+
+.@{prefix}-checkbox:focus-visible {
+  .tab-focus-style-rect();
 }

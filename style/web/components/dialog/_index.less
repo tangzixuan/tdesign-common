@@ -120,7 +120,6 @@
     width: 100%;
     text-align: right;
     padding: @dialog-footer-padding;
-
     .@{prefix}-button + .@{prefix}-button {
       margin-left: @dialog-footer-button-margin-left;
     }
@@ -221,7 +220,7 @@
     }
   }
 
-  &.@{prefix}-is-visable {
+  &.@{prefix}-is-visible {
     visibility: visible;
   }
 
@@ -300,5 +299,11 @@
   .@{prefix}-dialog {
     pointer-events: auto;
     z-index: @z-index-dialog;
+  }
+
+  &.@{prefix}-dialog__ctx--modeless {
+    .@{prefix}-dialog {
+      box-shadow: @shadow-3;
+    }
   }
 }

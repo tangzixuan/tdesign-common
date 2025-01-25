@@ -16,11 +16,14 @@
   &__left {
     left: 0;
     transform: translate3d(-100%, 0, 0);
+    display: flex;
+    flex-flow: row-reverse;
   }
 
   &__right {
     right: 0;
     transform: translate3d(100%, 0, 0);
+    display: flex;
   }
 
   &__content {
@@ -31,7 +34,7 @@
   }
 
   &__icon {
-    font-size: @font-size-l;
+    font-size: @font-size-xl;
   }
 
   &__icon + &__text:not(:empty) {

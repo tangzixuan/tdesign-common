@@ -6,13 +6,15 @@
 
 @import "../../mixins/_reset.less";
 
+@import "../../mixins/_scrollbar.less";
+
 .@{prefix}-tag-input {
   .reset;
 
   .@{prefix}-tag {
     vertical-align: middle;
     animation: t-fade-in @anim-duration-base ease-in-out;
-    margin: @comp-margin-xxs @comp-margin-xs @comp-margin-xxs 0;
+    margin: 3px @comp-margin-xs 3px 0;
   }
 
   .@{prefix}-tag-input__drag_wrapper + .@{prefix}-tag-input__drag_wrapper {
@@ -23,11 +25,11 @@
     overflow: hidden;
     min-height: @tag-input-height-default;
     height: fit-content;
-    padding: 1px @comp-paddingLR-s 1px @comp-margin-xs;
+    padding: 0 @comp-paddingLR-s 0 @comp-margin-xs;
     .t-input-suffix-icon(@comp-margin-s);
 
     &.@{prefix}-size-s {
-      padding: 0 @comp-paddingLR-xxs 0 @comp-margin-xs;
+      padding: 0 @comp-paddingLR-s 0 @comp-margin-xs;
       min-height: @tag-input-height-s;
       .@{prefix}-tag {
         margin: 1px @comp-margin-xs 1px 0;
@@ -36,7 +38,7 @@
 
     &.@{prefix}-size-l {
       min-height: @tag-input-height-l;
-      padding-right: @comp-paddingLR-m;
+      padding: 0 @comp-paddingLR-m 0 @comp-margin-s;
       .t-input-suffix-icon(@comp-margin-m);
     }
   }
@@ -51,7 +53,7 @@
 
   &:hover,
   .@{prefix}-input--focused {
-    .@{prefix}-input__inner {
+    .@{prefix}-input__inner:not(.@{prefix}-input--soft-hidden) {
       min-width: 20px;
     }
   }
@@ -78,6 +80,12 @@
     .@{prefix}-input__prefix {
       white-space: nowrap;
     }
+  }
+  .@{prefix}-input__prefix--scrollable {
+    .scrollbar();
+
+    overflow-y: hidden;
+    overflow-x: auto;
   }
 }
 
@@ -131,5 +139,21 @@
 .@{prefix}-tag-input.@{prefix}-input--auto-width {
   .@{prefix}-input {
     padding-right: 0;
+  }
+}
+
+/** max-rows模式，限制最大高度 */
+.@{prefix}-tag-input--max-rows {
+  .@{prefix}-input {
+    &.@{prefix}-size-s {
+      max-height: calc(var(--max-rows, 1) * @tag-input-height-s);
+    }
+
+    &.@{prefix}-size-l {
+      max-height: calc(var(--max-rows, 1) * (@tag-input-height-l - 2px));
+    }
+
+    max-height: calc(var(--max-rows, 1) * (@tag-input-height-default - 2px));
+    overflow-y: scroll;
   }
 }

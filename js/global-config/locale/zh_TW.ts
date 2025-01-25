@@ -3,15 +3,18 @@
 import 'dayjs/locale/zh-tw';
 
 export default {
+  autoComplete: {
+    empty: '暫無數據',
+  },
   pagination: {
-    itemsPerPage: '{size} 條/頁',
+    itemsPerPage: '{size} 項/頁',
     jumpTo: '跳至',
     page: '頁',
     total: '共 {total} 項數據',
   },
   cascader: {
     empty: '暫無數據',
-    loadingText: '加載中',
+    loadingText: '載入中',
     placeholder: '請選擇',
   },
   calendar: {
@@ -19,8 +22,8 @@ export default {
     monthSelection: '{month} 月',
     yearRadio: '年',
     monthRadio: '月',
-    hideWeekend: '隱藏周末',
-    showWeekend: '顯示周末',
+    hideWeekend: '隱藏週末',
+    showWeekend: '顯示週末',
     today: '今天',
     thisMonth: '本月',
     week: '一,二,三,四,五,六,日',
@@ -29,27 +32,27 @@ export default {
   transfer: {
     title: '{checked} / {total} 項',
     empty: '暫無數據',
-    placeholder: '請輸入關鍵詞搜索',
+    placeholder: '請輸入關鍵詞搜尋',
   },
   timePicker: {
     dayjsLocale: 'zh-tw',
     now: '此刻',
-    confirm: '確定',
+    confirm: '確認',
     anteMeridiem: '上午',
     postMeridiem: '下午',
     placeholder: '選擇時間',
   },
   dialog: {
-    confirm: '確定',
+    confirm: '確認',
     cancel: '取消',
   },
   drawer: {
-    confirm: '確定',
+    confirm: '確認',
     cancel: '取消',
   },
   popconfirm: {
     confirm: {
-      content: '確定',
+      content: '確認',
     },
     cancel: {
       content: '取消',
@@ -57,25 +60,25 @@ export default {
   },
   table: {
     empty: '暫無數據',
-    loadingText: '正在加載中，請稍後',
-    loadingMoreText: '點擊加載更多',
+    loadingText: '正在載入中，請稍後',
+    loadingMoreText: '點擊載入更多',
     filterInputPlaceholder: '請輸入内容（無默認值）',
     sortAscendingOperationText: '點擊升序',
     sortCancelOperationText: '點擊取消排序',
     sortDescendingOperationText: '點擊降序',
     clearFilterResultButtonText: '清空篩選',
-    columnConfigButtonText: '列配置',
-    columnConfigTitleText: '表格列配置',
-    columnConfigDescriptionText: '請選擇需要在表格中顯示的數據列',
+    columnConfigButtonText: '行配置',
+    columnConfigTitleText: '表格行配置',
+    columnConfigDescriptionText: '請選擇需要在表格中顯示的數據行',
     confirmText: '確認',
     cancelText: '取消',
     resetText: '重置',
     selectAllText: '全選',
-    searchResultText: '搜索"{result}"，找到{count}條結果',
+    searchResultText: '搜尋"{result}"，找到{count}項結果',
   },
   select: {
     empty: '暫無數據',
-    loadingText: '加載中',
+    loadingText: '載入中',
     placeholder: '請選擇',
   },
   tree: {
@@ -83,7 +86,7 @@ export default {
   },
   treeSelect: {
     empty: '暫無數據',
-    loadingText: '加載中',
+    loadingText: '載入中',
     placeholder: '請選擇',
   },
   datePicker: {
@@ -92,6 +95,8 @@ export default {
       date: '請選擇日期',
       month: '請選擇月份',
       year: '請選擇年份',
+      quarter: '請選擇季度',
+      week: '請選擇周',
     },
     weekdays: ['一', '二', '三', '四', '五', '六', '日'],
     months: [
@@ -113,10 +118,10 @@ export default {
     direction: 'ltr',
     format: 'YYYY-MM-DD',
     dayAriaLabel: '日',
-    weekAbbreviation: '周',
+    weekAbbreviation: '週',
     yearAriaLabel: '年',
     monthAriaLabel: '月',
-    comfirm: '確定',
+    confirm: '確認',
     selectTime: '選擇時間',
     selectDate: '選擇日期',
     nextYear: '下一年',
@@ -134,7 +139,7 @@ export default {
       fileInput: '選擇文件',
       image: '點擊上傳圖片',
       normal: '點擊上傳',
-      // 选择文件和上传文件是 2 个步骤，文本需明确步骤
+      // 選擇文件和上傳文件是 2 個步驟，文本需明確步驟
       reupload: '重新選擇',
       continueUpload: '繼續選擇',
       delete: '刪除',
@@ -163,6 +168,7 @@ export default {
     errorMessage: {
       date: '請輸入正確的${name}',
       url: '請輸入正確的${name}',
+      whitespace: '${name}不能為空',
       required: '${name}必填',
       max: '${name}字符長度不能超過 ${validate} 個字符，一個中文等於兩個字符',
       min: '${name}字符長度不能少於 ${validate} 個字符，一個中文等於兩個字符',
@@ -172,29 +178,32 @@ export default {
       telnumber: '請輸入正確的${name}',
       pattern: '請輸入正確的${name}',
       validator: '${name}不符合要求',
-      boolean: '${name}數據類型必須是布爾類型',
+      boolean: '${name}數據類型必須是布林類型',
       number: '${name}必須是數字',
     },
+    colonText: '：',
   },
   input: {
     placeholder: '請輸入',
   },
   list: {
-    loadingText: '正在加載中，請稍後',
-    loadingMoreText: '點擊加載更多',
+    loadingText: '正在載入中，請稍後',
+    loadingMoreText: '點擊載入更多',
   },
   alert: {
     expandText: '展開更多',
     collapseText: '收起',
   },
   anchor: {
-    copySuccessText: '鏈接複製成功',
-    copyText: '複製鏈接',
+    copySuccessText: '連結複製成功',
+    copyText: '複製連結',
   },
   colorPicker: {
     swatchColorTitle: '系統預設顔色',
     recentColorTitle: '最近使用的顔色',
     clearConfirmText: '確定清空最近使用的顔色嗎？',
+    singleColor: '單色',
+    gradientColor: '漸變'
   },
   guide: {
     finishButtonProps: {
@@ -216,12 +225,32 @@ export default {
   },
   image: {
     errorText: '圖片無法顯示',
-    loadingText: '圖片加載中',
+    loadingText: '圖片載入中',
   },
   imageViewer: {
-    errorText: '圖片加載失敗，可嘗試重新加載',
+    errorText: '圖片載入失敗，可嘗試重新載入',
     mirrorTipText: '鏡像',
     rotateTipText: '旋轉',
     originalSizeTipText: '原始大小',
+  },
+  typography: {
+    expandText: '展開',
+    collapseText: '收起',
+    copiedText: '復製成功',
+  },
+  rate: {
+    rateText: ['極差', '失望', '一般', '滿意', '驚喜'],
+  },
+  empty: {
+    titleText: {
+      maintenance: '建設中',
+      success: '成功',
+      fail: '失敗',
+      empty: '暫無數據',
+      networkError: '網絡錯誤',
+    },
+  },
+  descriptions: {
+    colonText: '：',
   },
 } as const;

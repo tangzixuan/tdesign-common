@@ -30,12 +30,18 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 1005;
+    border-radius: 0;
   }
 
   &__swiper-item {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &__img {
+    height: auto;
+    max-width: 100%;
   }
 
   &__nav {
@@ -52,21 +58,15 @@
 
     &-close {
       margin-left: @image-viewer-close-margin-left; // 关闭操作按钮左部间距
-
-      &:empty {
-        display: none;
-      }
     }
 
     &-delete {
       margin-right: @image-viewer-delete-margin-right; // 删除操作按钮右部间距
-      &:empty {
-        display: none;
-      }
     }
 
     &-close,
     &-delete {
+      width: @image-viewer-icon-font-size;
       font-size: @image-viewer-icon-font-size;
     }
 

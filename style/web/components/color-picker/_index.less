@@ -377,6 +377,7 @@
       .@{prefix}-input-number {
         width: 100%;
         padding: 0;
+        max-width: 100%;
       }
     }
   }
@@ -443,6 +444,7 @@
       padding: @color-picker-swatch-item-padding;
       position: relative;
       left: @color-picker-swatch-item-left-negative-padding;
+      box-sizing: content-box;
     }
 
     &--item {

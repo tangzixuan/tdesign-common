@@ -3,6 +3,9 @@
 import 'dayjs/locale/ar';
 
 export default {
+  autoComplete: {
+    empty: 'لا تتوافر بيانات',
+  },
   pagination: {
     itemsPerPage: '{size} / الصفحة',
     jumpTo: 'القفز إلى',
@@ -93,6 +96,8 @@ export default {
       date: 'حدد تاريخ',
       month: 'اختر الشهر',
       year: 'اختر السنة',
+      quarter: 'الرجاء تحديد الربع',
+      week: 'الرجاء تحديد اسبوع',
     },
     weekdays: [
       'الإثنين',
@@ -175,6 +180,7 @@ export default {
     errorMessage: {
       date: 'الرجاء إدخال ${name} الصحيح',
       url: 'الرجاء إدخال ${name} الصحيح',
+      whitespace: 'لا يمكن أن يكون ${name} فارغًا',
       required: 'مطلوب ${name}',
       max: 'يمكن أن يحتوي ${name} على ما يصل إلى ${validate} حرفًا',
       min: 'لا يمكن أن يكون ${name} أقل من ${validate} حرفًا',
@@ -210,6 +216,8 @@ export default {
     swatchColorTitle: 'الألوان الافتراضية',
     recentColorTitle: 'مستخدم حديثا',
     clearConfirmText: 'هل تريد مسح الألوان المستخدمة مؤخرًا؟',
+    singleColor: 'موحد',
+    gradientColor: 'متدرج'
   },
   image: {
     errorText: 'غير قادر على التحميل',
@@ -220,5 +228,22 @@ export default {
     mirrorTipText: 'مرآة',
     rotateTipText: 'استدارة',
     originalSizeTipText: 'أصلي',
+  },
+  typography: {
+    expandText: 'توسيع',
+    collapseText: 'طي',
+    copiedText: 'النسخ اكتمل',
+  },
+  rate: {
+    rateText: ['فظيع', 'خيبة أمل', 'عادي', 'راض', 'مفاجأة'],
+  },
+  empty: {
+    titleText: {
+      maintenance: 'تحت الإنشاء',
+      success: 'النجاح',
+      fail: 'الفشل',
+      empty: 'لا توجد بيانات حتى الآن',
+      networkError: 'خطأ في الشبكة',
+    }
   },
 } as const;

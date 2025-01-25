@@ -23,7 +23,6 @@
 
   background-color: @collapse-panel-bg-color;
   overflow: hidden;
-  transition: height ease 240ms;
 
   &--top {
     display: flex;
@@ -62,7 +61,7 @@
     }
 
     .@{cell}__right-icon {
-      color: var(--td-collapse-icon-color, @font-gray-3);
+      color: @collapse-icon-color;
     }
   }
 
@@ -74,6 +73,15 @@
     .@{cell}__right-icon {
       color: @collapse-header-text-disabled-color;
     }
+  }
+
+  &__body {
+    display: grid;
+    transition: grid-template-rows ease 240ms;
+  }
+
+  &__inner {
+    overflow: hidden;
   }
 
   &__content {

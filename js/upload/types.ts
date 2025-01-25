@@ -182,7 +182,7 @@ export interface OnResponseErrorContext {
   files: UploadFile[];
 }
 
-export type ResponseType = { error?: string; url?: string } & Record<string, any>;
+export type ResponseType = { error?: string; url?: string; status?: 'fail' | 'success'; files?: UploadFile[] } & Record<string, any>
 
 export interface HandleUploadParams {
   /** 已经上传过的文件 */
@@ -207,8 +207,8 @@ export interface HandleUploadParams {
   multiple?: boolean;
   headers?: {[key: string]: string};
   withCredentials?: boolean;
-  /** HTTP 请求类型。可选项：POST/GET/PUT/OPTION/PATCH/post/get/put/option/patch */
-  method?: 'POST' | 'GET' | 'PUT' | 'OPTION' | 'PATCH' | 'post' | 'get' | 'put' | 'option' | 'patch';
+  /** HTTP 请求类型。可选项：POST/GET/PUT/OPTIONS/PATCH/post/get/put/options/patch */
+  method?: 'POST' | 'GET' | 'PUT' | 'OPTIONS' | 'PATCH' | 'post' | 'get' | 'put' | 'options' | 'patch';
   formatRequest?: (requestData: { [key: string]: any }) => { [key: string]: any };
   formatResponse?: (response: any, context: FormatResponseContext) => ResponseType;
   /** 自定义上传方法 */

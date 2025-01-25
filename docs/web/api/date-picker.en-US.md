@@ -36,6 +36,12 @@ For selection of specific dates. Use only when the user needs to enter very spec
 
 {{ base }}
 
+### Date multi-select picker
+
+Selection for date multi-select.
+
+{{ multiple }}
+
 ### Date Time Selector
 
 For date and time associated selections. Used when the user needs to enter a date including a time.
@@ -77,6 +83,10 @@ Prefix and suffix icons can be customized through `prefixIcon` and `suffixIcon`.
 You can use `DatePickerPanel` and `DateRangePickerPanel` separately. You can assemble your own date picker.
 
 {{ panel }}
+
+### An unbounded date range selector。
+
+{{ cancel-range-limit }}
 
 ## FAQ
 

@@ -32,6 +32,7 @@
   box-shadow: @back-top-box-shadow;
   visibility: hidden;
   opacity: 0;
+  color: @back-top-text-color;
 
   &__text {
     font: @font-body-small;
@@ -43,7 +44,7 @@
     font-size: @font-headline-small;
   }
 
-  &.t-size-m {
+  &.@{prefix}-size-m {
     .@{prefix-block}__icon {
       margin-top: 2px;
     }
